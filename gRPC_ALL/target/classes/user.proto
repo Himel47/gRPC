@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_package = "com.himel.grpc";
+
+service user{
+  rpc login(loginRequest) returns (loginResponse);
+  rpc registration(regRequest) returns (regResponse);
+  rpc logout(empty) returns (loginResponse);
+}
+
+message regRequest{
+  int32 userID =1;
+  string name =2;
+  string userName = 3;
+  string password = 4;
+}
+message regResponse{
+  string reg_response = 1;
+  int32 reg_resCode =2;
+}
+
+message loginRequest{
+  string userName =1;
+  string password =2;
+}
+message loginResponse{
+  string log_response =1;
+  int32 log_resCode = 2;
+}
+
+message empty{}
